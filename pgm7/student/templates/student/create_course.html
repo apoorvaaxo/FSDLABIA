@@ -1,0 +1,16 @@
+<!-- student/templates/student/create_course.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Course</title>
+</head>
+<body>
+    <h1>Create Course</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create</button>
+    </form>
+    <a href="{% url 'course_list' %}">Back to Course List</a>
+</body>
+</html>

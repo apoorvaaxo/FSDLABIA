@@ -1,0 +1,16 @@
+<!-- student/templates/student/course_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course List</title>
+</head>
+<body>
+    <h1>Course List</h1>
+    <ul>
+        {% for course in courses %}
+        <li><a href="{% url 'course_detail' course.id %}">{{ course.title }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_course' %}">Create a new course</a>
+</body>
+</html>
