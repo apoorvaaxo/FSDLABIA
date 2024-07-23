@@ -1,8 +1,8 @@
 # student/views.py
 
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Student, Course
-from .forms import StudentForm, CourseForm
+from .models import Student, Course, Project
+from .forms import StudentForm, CourseForm, ProjectForm
 
 def register_student(request):
     if request.method == 'POST':
@@ -24,6 +24,16 @@ def create_course(request):
         form = CourseForm()
     return render(request, 'student/create_course.html', {'form': form})
 
+def project_registration(request):
+    if request.method == 'POST':
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('project_registration')
+    else:
+        form = ProjectForm()
+    return render(request, 'student/project_registration.html', {'form': form})
+
 def student_list(request):
     students = Student.objects.all()
     return render(request, 'student/student_list.html', {'students': students})
@@ -35,3 +45,6 @@ def course_list(request):
 def course_detail(request, course_id):
     course = get_object_or_404(Course, id=course_id)
     return render(request, 'student/course_detail.html', {'course': course})
+def project_list(request):
+    projects = Project.objects.all()
+    return render(request, 'student/project_list.html', {'projects': projects})

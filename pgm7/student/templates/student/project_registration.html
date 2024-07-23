@@ -1,0 +1,15 @@
+<!-- studentproject/templates/project_registration.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Registration</title>
+<body>
+    <h1>Project Registration</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

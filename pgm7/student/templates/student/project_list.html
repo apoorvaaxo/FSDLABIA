@@ -1,0 +1,20 @@
+<!-- student/templates/student/project_list.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project List</title>
+</head>
+<body>
+    <h1>Project List</h1>
+    <ul>
+        {% for project in projects %}
+        <li>
+            <strong>Topic:</strong> {{ project.topic }}<br>
+            <strong>Languages Used:</strong> {{ project.language_used }}<br>
+            <strong>Duration (days):</strong> {{ project.duration }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

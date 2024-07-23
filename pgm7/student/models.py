@@ -16,3 +16,11 @@ class Course(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Project(models.Model):
+    topic=models.CharField(max_length=70)
+    language_used=models.CharField(max_length=200)
+    duration=models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.topic
